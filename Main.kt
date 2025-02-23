@@ -5,19 +5,19 @@ interface Notificable {
 
 class CorreoElectronico(private val destinatario: String, private val mensaje: String) : Notificable {
     override fun enviarNotificacion() {
-        println("📧 Enviando correo a $destinatario: $mensaje")
+        println("Enviando correo a $destinatario: $mensaje")
     }
 }
 
 class MensajeTexto(private val numero: String, private val mensaje: String) : Notificable {
     override fun enviarNotificacion() {
-        println("📱 Enviando SMS a $numero: $mensaje")
+        println("Enviando SMS a $numero: $mensaje")
     }
 }
 
 class NotificacionPush(private val usuario: String, private val mensaje: String) : Notificable {
     override fun enviarNotificacion() {
-        println("🔔 Enviando notificación push a $usuario: $mensaje")
+        println("Enviando notificación push a $usuario: $mensaje")
     }
 }
 
@@ -28,6 +28,5 @@ fun main() {
         NotificacionPush("Usuario123", "Tienes un nuevo mensaje en la app.")
     )
 
-    // Recorre la lista y envía cada notificación
     notificaciones.forEach { it.enviarNotificacion() }
 }
